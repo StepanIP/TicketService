@@ -21,13 +21,13 @@ public class BusRouteController {
     }
 
     @GetMapping("/all")
-    @CrossOrigin(origins = "http://localhost:3030")
+    @CrossOrigin(origins = "http://localhost:3030/**")
     public ResponseEntity<List<BusRoute>> getAll() {
         return new ResponseEntity<>(busRouteService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/search")
-    @CrossOrigin(origins = "http://localhost:3030")
+    @CrossOrigin(origins = "http://localhost:3030/**")
     public ResponseEntity<List<BusRoute>> searchRoutes(
             @RequestParam(value = "from", required = false) String from,
             @RequestParam(value = "to", required = false) String to,
