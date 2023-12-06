@@ -19,6 +19,7 @@ public class AccountController {
     }
 
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:3030")
     public ResponseEntity<User> getPublicData(Principal principal) {
         User person = userService.readByEmail(principal.getName());
         return new ResponseEntity<>(User.builder().

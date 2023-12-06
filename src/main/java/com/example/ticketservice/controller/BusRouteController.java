@@ -5,10 +5,7 @@ import com.example.ticketservice.service.BusRouteService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,11 +21,13 @@ public class BusRouteController {
     }
 
     @GetMapping("/all")
+    @CrossOrigin(origins = "http://localhost:3030")
     public ResponseEntity<List<BusRoute>> getAll() {
         return new ResponseEntity<>(busRouteService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/search")
+    @CrossOrigin(origins = "http://localhost:3030")
     public ResponseEntity<List<BusRoute>> searchRoutes(
             @RequestParam(value = "from", required = false) String from,
             @RequestParam(value = "to", required = false) String to,
