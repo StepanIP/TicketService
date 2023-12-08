@@ -20,13 +20,13 @@ public class BranchController {
     }
 
     @GetMapping("/all")
-    @CrossOrigin(origins = "http://localhost:3030/**")
+    @CrossOrigin(origins = "http://localhost:3000/**")
     public ResponseEntity<List<Branch>> getAll() {
         return new ResponseEntity<>(branchService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/search")
-    @CrossOrigin(origins = "http://localhost:3030/**")
+    @CrossOrigin(origins = "http://localhost:3000/**")
     public ResponseEntity<List<Branch>> searchBranches(
             @RequestParam(value = "city", required = false) String city,
             @RequestParam(value = "type", required = false) String type) {

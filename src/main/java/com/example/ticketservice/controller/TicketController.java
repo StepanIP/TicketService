@@ -31,14 +31,14 @@ public class TicketController {
     }
 
     @GetMapping("/all")
-    @CrossOrigin(origins = "http://localhost:3030/**")
+    @CrossOrigin(origins = "http://localhost:3000/**")
     public ResponseEntity<List<Ticket>> getAll(Principal principal) {
         User user = userService.readByEmail(principal.getName());
         return new ResponseEntity<>(ticketService.findTicketByUser(user), HttpStatus.OK);
     }
 
     @PostMapping("/refund")
-    @CrossOrigin(origins = "http://localhost:3030/**")
+    @CrossOrigin(origins = "http://localhost:3000/**")
     public ResponseEntity<HttpStatus> refundTicket(Principal principal, Ticket ticket, String refundReason) {
         User user = userService.readByEmail(principal.getName());
         ticketService.delete(ticket.getId());
